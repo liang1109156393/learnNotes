@@ -1,0 +1,14 @@
+一、spring
+1、spring是一个简化java企业级开发的一个框架，内部包含了很多技术，比如：控制反转&依赖注入、面向切面编程、spring事务管理。
+通过spring集成其他框架、springmvc、springboot、springCloud等等。
+2、spring包含:core、context、orm、mvc、beans、aop等模块。
+3、控制反转:对象的创建由spring处理，依赖注入:spring方式实现对象的依赖关系管理.
+4、beanFactory、applicationContext classpathXMLApplicationContext AnnotationConfigApplicationContext注解context
+6、bean的创建方式:1、构造函数 2、静态工厂 3、实例工厂、4、FactoryBean接口
+7、spring作用域:singleton(默认) prototype ,request、session、application都是在spring web容器环境中才会有的。
+8、依赖注入:1、构造函数(1:参数索引注入 2:参数类型注入 3:参数名称注入) 。2、setter方法
+9、xml是手动注入。注解自动注入:  @Autowired @Qualifier @Resource @Service @Component等注解
+10:depends-on   @DependsOn
+11、1:当从容器中查找一个bean的时候，如果容器中出现多个Bean候选者时，可以通过primary="true"将当前bean置为首选者，那么查找的时候就会返回主要的候选者，否则抛异常。@primary
+    2:autowire-candidate选择候选bean 为true
+12、懒加载：lazy-init="true“ @Lazy懒加载 spring启动的时候不实例化bean ，使用时候才实例化
