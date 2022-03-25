@@ -1,0 +1,4 @@
+org.springframework.context.ApplicationContextInitializer= \
+  com.zxl.basic.spring.intenal.inteface.MyApplicationInitializer
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.zxl.basic.springboot.enableconfig.DemoServiceAutoConfiguration
