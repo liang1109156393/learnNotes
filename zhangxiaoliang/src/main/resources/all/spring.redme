@@ -12,3 +12,7 @@
 11、1:当从容器中查找一个bean的时候，如果容器中出现多个Bean候选者时，可以通过primary="true"将当前bean置为首选者，那么查找的时候就会返回主要的候选者，否则抛异常。@primary
     2:autowire-candidate选择候选bean 为true
 12、懒加载：lazy-init="true“ @Lazy懒加载 spring启动的时候不实例化bean ，使用时候才实例化
+13 简化xml的配置 公用部分抽象出俩，使用abstract = true,在子类中使用parent引用。容器中getBean抽象类会抛异常。
+14、单例bean使用多例bean,1:ApplicationContextAware接口实现.2:lookup-method方法查找 3:replaced-method方法替换,
+15、@Configuration中使用@Bean @Configuration注解修饰的类，会被spring通过cglib做增强处理，通过cglib会生成一个代理对象，代理会拦截所有被@Bean注解修饰的方法，可以确保一些bean是单例的
+不管@Bean所在的类上是否有@Configuration注解，都可以将@Bean修饰的方法作为一个bean注册到spring容器中

@@ -1,5 +1,6 @@
 package com.zxl.basic;
 
+import com.zxl.basic.annotation.MyAnnotation;
 import com.zxl.basic.spring.Listener.MyEvent;
 import com.zxl.basic.spring.Listener.MyListener;
 import com.zxl.basic.spring.MyBeanNoConfig;
@@ -14,6 +15,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Conditional;
 
 /**
  * @author :zhangxiaoliang
@@ -22,7 +24,6 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDemoConfiguration
 public class SpringBootMain {
-
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(SpringBootMain.class);
         application.addInitializers(new MyApplicationInitializer());

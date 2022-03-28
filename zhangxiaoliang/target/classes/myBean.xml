@@ -6,8 +6,7 @@
     <!--控制反转:对象的创建和组装由spring处理,依赖注入:对象创建所依赖的属性设置-->
     <!--bean 创建方式 1、构造函数 2、静态工厂方法 3、实例工厂方法 4、FactoryBean-->
     <!--bean作用域:singleton prototype   web容器中的作用域:request session application -->
-    <!--注入方式:-->
-
+    <!--注入方式:构造函数，set方法-->
     <!--构造函数-->
     <bean id="myBean" name="myBean" class="com.zxl.basic.spring.bean.MyBean">
         <constructor-arg index="0" value="zhang"/>
@@ -20,12 +19,13 @@
     <bean id="myBean2" name="myBean2" factory-bean="instanceFactory" factory-method="buildInstance" />
     <!--factoryBean接口-->
     <bean id="myBean3" class="com.zxl.basic.spring.bean.MyFactoryBean" />
-    <!--注入方式:构造函数、setter方法-->
+
+    <!--注入方式:构造函数-->
     <bean id="injectBean" class="com.zxl.basic.spring.bean.InjectMyBean">
         <constructor-arg ref="myBean" />
     </bean>
-
-    <bean id="injectBean2" class="com.zxl.basic.spring.bean.InjectMyBean" autowire="byType">
+    <!--setter方法注入-->
+    <bean id="injectBean2" class="com.zxl.basic.spring.bean.InjectMyBean">
         <property name="myBean" ref="myBean"/>
     </bean>
     <!--自动装类型: no不适用自动装配, byName根据名称 byType根据类型 construct default(byName)-->
