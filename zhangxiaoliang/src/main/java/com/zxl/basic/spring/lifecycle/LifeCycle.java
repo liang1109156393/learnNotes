@@ -1,15 +1,20 @@
 package com.zxl.basic.spring.lifecycle;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
+import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+
+import java.beans.PropertyDescriptor;
 
 /**
  * @author :zhangxiaoliang
@@ -30,7 +35,7 @@ import org.springframework.stereotype.Component;
  * 使用二级缓存可以解决循环依赖问题，前提是对象没有aop代理。getEarlyBeanReference()产生代理对象
  */
 @Component
-public class LifeCycle implements BeanDefinitionRegistryPostProcessor, BeanPostProcessor, ApplicationContextAware, InitializingBean, DisposableBean {
+public class LifeCycle implements BeanDefinitionRegistryPostProcessor, InstantiationAwareBeanPostProcessor, BeanPostProcessor, ApplicationContextAware, InitializingBean, DisposableBean {
     private ApplicationContext applicationContext;
 
     @Override
@@ -87,4 +92,25 @@ public class LifeCycle implements BeanDefinitionRegistryPostProcessor, BeanPostP
 
     }
 
+    /*实例化 默认返回null,若返回值不为null 则直接则不在进行下面的初始化操作*/
+    @Override
+    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
+        return InstantiationAwareBeanPostProcessor.super.postProcessBeforeInstantiation(beanClass, beanName);
+    }
+
+    /*默认发挥true,若返回false 则跳过属性填充，执行后面的初始化*/
+    @Override
+    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+        return InstantiationAwareBeanPostProcessor.super.postProcessAfterInstantiation(bean, beanName);
+    }
+
+    @Override
+    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
+        return InstantiationAwareBeanPostProcessor.super.postProcessProperties(pvs, bean, beanName);
+    }
+
+    @Override
+    public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
+        return InstantiationAwareBeanPostProcessor.super.postProcessPropertyValues(pvs, pds, bean, beanName);
+    }
 }

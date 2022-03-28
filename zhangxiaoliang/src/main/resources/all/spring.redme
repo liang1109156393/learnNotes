@@ -16,3 +16,14 @@
 14、单例bean使用多例bean,1:ApplicationContextAware接口实现.2:lookup-method方法查找 3:replaced-method方法替换,
 15、@Configuration中使用@Bean @Configuration注解修饰的类，会被spring通过cglib做增强处理，通过cglib会生成一个代理对象，代理会拦截所有被@Bean注解修饰的方法，可以确保一些bean是单例的
 不管@Bean所在的类上是否有@Configuration注解，都可以将@Bean修饰的方法作为一个bean注册到spring容器中
+16、bean注解 @Autowired  @Resource @Qualifier @Service
+17、condition接口 conditional注解中使用condition接口的实现类条件过滤是否需要加载bean到spring中
+18、bean的创建方式:api xml properties 注解等。
+19、bean创建过程,
+    1、扫描配置文件，或者注解讲bean解析成BeanDefinition对象，然后对bean实例化、初始化、等操作。
+    2、beanDefinition中的属性:：bean对应的class、scope、lazy信息、dependOn信息、autowireCandidate（是否是候选对象）、primary（是否是主要的候选者）等信息。
+    3、XmlBeanDefinitionReader  PropertiesBeanDefinitionReader AnnotatedBeanDefinitionReader 读取bean的配置信息，解析beanDefinition通过BeanDefinitionRegistry注册到spring中
+    4、bean的实例化，初始化 使用 销毁。
+20、bean生命周期
+21、父子容器:父容器和子容器是相互隔离的，他们内部可以存在名称相同的bean 子容器可以访问父容器中的bean，而父容器不能访问子容器中的bean 调用子容器的getBean方法获取bean的时候，会沿着当前容器开始向上面的容器进行查找，直到找到对应的bean为止
+   子容器中可以通过任何注入方式注入父容器中的bean，而父容器中是无法注入子容器中的bean，BeanFactoryUtils支持层次查找。
