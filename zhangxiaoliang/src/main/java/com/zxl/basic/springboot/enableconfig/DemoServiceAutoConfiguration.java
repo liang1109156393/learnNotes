@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnBean(
         annotation = {EnableDemoConfiguration.class}
 )
+@MyConditionProperties
 @ConditionalOnProperty(
         prefix = "demo",
         name = "isopen",

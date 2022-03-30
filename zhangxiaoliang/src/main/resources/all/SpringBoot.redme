@@ -1,0 +1,6 @@
+springboot:
+@SpringBootApplication注解包含:@SpringBootConfiguration @EnableAutoConfiguration @ComponentScan三个注解。
+new SpringApplication(class);
+构造函数:设置主资源，推断出应用类型，推断出main资源，通过spring.factories文件 加载初始化器和监听器。
+run方法:启动starting监听，封装启动参数，配置环境，打印信息，创建上下文，prepareContext，spring刷新上线文，afterContext,CommandLineRunner ApplicationRunner
+自动配置:扫描spring.factories文件中的自动配置类，根据条件注解，加载到spring中去。

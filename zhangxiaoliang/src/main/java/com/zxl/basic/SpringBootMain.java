@@ -36,15 +36,14 @@ public class SpringBootMain {
 
         MyConfig.ImportBean importBean = (MyConfig.ImportBean) context.getBean("importBean");
         importBean.testImport();
-        MyImportSelector.ImportSelectorBean importSelectorBean = (  MyImportSelector.ImportSelectorBean) context.getBean(MyImportSelector.ImportSelectorBean.class);
+        MyImportSelector.ImportSelectorBean importSelectorBean = context.getBean(MyImportSelector.ImportSelectorBean.class);
         importSelectorBean.testImportSelectorBean();
-        MyImportBeanDefinition.ImportBeanDefinitionBean importBeanDefinitionBean = ( MyImportBeanDefinition.ImportBeanDefinitionBean) context.getBean("importBeanDefinitionBean");
+        MyImportBeanDefinition.ImportBeanDefinitionBean importBeanDefinitionBean = (MyImportBeanDefinition.ImportBeanDefinitionBean) context.getBean("importBeanDefinitionBean");
         importBeanDefinitionBean.testImportBeanDefinitionBean();
-        LifeCycle lifeCycle =(LifeCycle) context.getBean("lifeCycle");
+        LifeCycle lifeCycle = (LifeCycle) context.getBean("lifeCycle");
         lifeCycle.testAutoConfig();
-        MyBeanNoConfig noConfig = (MyBeanNoConfig)context.getBean("myBeanNoConfig");
+        MyBeanNoConfig noConfig = (MyBeanNoConfig) context.getBean("myBeanNoConfig");
         noConfig.testNoConfig();
-
         System.out.println(context.getBean("myConfig").toString());
         System.out.println(context.getBean("noConfig").toString());
 
