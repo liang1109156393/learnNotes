@@ -1,4 +1,4 @@
-package com.zxl.basic.collection;
+package com.zxl.basic.java.collection;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

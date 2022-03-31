@@ -1,4 +1,4 @@
-package com.zxl.basic.jvm;
+package com.zxl.basic.java.jvm;
 
 /**
  * @author :zhangxiaoliang

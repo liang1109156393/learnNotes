@@ -1,14 +1,8 @@
-package com.zxl.basic.collection;
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
+package com.zxl.basic.java.collection;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 /**
  * @author :zhangxiaoliang

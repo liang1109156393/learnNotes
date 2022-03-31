@@ -1,23 +1,17 @@
 package com.zxl.basic;
 
-import com.zxl.basic.annotation.MyAnnotation;
 import com.zxl.basic.spring.Listener.MyEvent;
 import com.zxl.basic.spring.Listener.MyListener;
 import com.zxl.basic.spring.MyBeanNoConfig;
-import com.zxl.basic.spring.NoConfig;
 import com.zxl.basic.spring.intenal.inteface.MyApplicationInitializer;
 import com.zxl.basic.spring.intenal.inteface.MyConfig;
 import com.zxl.basic.spring.intenal.inteface.MyImportBeanDefinition;
 import com.zxl.basic.spring.intenal.inteface.MyImportSelector;
 import com.zxl.basic.spring.lifecycle.LifeCycle;
-import com.zxl.basic.springboot.condition.MyCondition;
 import com.zxl.basic.springboot.enableconfig.EnableDemoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Conditional;
 
 /**
  * @author :zhangxiaoliang
@@ -32,7 +26,6 @@ public class SpringBootMain {
         application.addListeners(new MyListener());
         ConfigurableApplicationContext context = application.run(args);
         context.publishEvent(new MyEvent(""));
-
 
         MyConfig.ImportBean importBean = (MyConfig.ImportBean) context.getBean("importBean");
         importBean.testImport();

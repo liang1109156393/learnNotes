@@ -1,4 +1,4 @@
-package com.zxl.basic.annotation;
+package com.zxl.basic.java.annotation;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.core.annotation.AnnotatedElementUtils;

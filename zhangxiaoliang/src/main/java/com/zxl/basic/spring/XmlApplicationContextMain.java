@@ -3,6 +3,7 @@ package com.zxl.basic.spring;
 import com.zxl.basic.spring.bean.InjectMyBean;
 import com.zxl.basic.spring.bean.MyBean;
 import com.zxl.basic.spring.config.MyConfig2;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
