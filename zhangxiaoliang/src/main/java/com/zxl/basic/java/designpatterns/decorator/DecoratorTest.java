@@ -6,8 +6,9 @@ package com.zxl.basic.java.designpatterns.decorator;
  * 装饰器模式:在不改变原有的类的基础上，增加一些额外的职责功能
  */
 public class DecoratorTest {
+    public final  ConcreteComponent newInstance = new ConcreteComponent();
     public static void main(String[] args) {
-
+        DecoratorTest a  = new DecoratorTest();
     }
 }
 
